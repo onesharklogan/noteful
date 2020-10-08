@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, NavLink } from 'react-router-dom';
 import '../App.css';
 
 //need to map the notes to the notes list items
@@ -10,10 +10,9 @@ class Note extends Component {
         const niceDate = this.props.modified;
 
         return (
-            <div>
+            <div className="note">
+                <NavLink to={`/note/${this.props.id}`}>{this.props.name}</NavLink>
                 <button className="note-button">Delete Note</button>
-
-                <h2>{this.props.name}</h2>
                 <p> {niceDate} </p>
             </div>
         )

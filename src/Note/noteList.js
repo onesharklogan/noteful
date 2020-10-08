@@ -12,7 +12,7 @@ class NoteList extends Component {
                 <ul>
                     {this.props.notes.map(note =>
                         <li key={note.id}>
-                            {<Note name={note.name} modified={note.modified} />}
+                            {<Note name={note.name} id={note.id} modified={note.modified} />}
                         </li>
                     )}
                 </ul>

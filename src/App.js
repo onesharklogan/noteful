@@ -42,7 +42,6 @@ class App extends Component {
         }}
       />
 
-
       <Route
         path="/folder/:folderId"
         render={routeProps => {
@@ -61,6 +60,30 @@ class App extends Component {
           );
         }}
       />
+
+      <Route
+        path="/note/:noteId"
+        render={routeProps => {
+          const { noteId } = routeProps.match.params;
+
+          const noteFound = findNote(
+            notes,
+            noteId
+          );
+
+          console.log(noteFound);
+
+          return (
+            <NoteNote
+              {...routeProps}
+            // id={noteId}
+            // name={noteFound.name}
+            // modified={noteFound.modified}
+            />
+          );
+        }}
+      />
+
 
     </>)
   }
