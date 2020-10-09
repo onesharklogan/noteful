@@ -6,16 +6,21 @@ import Note from './note';
 class NoteNote extends Component {
 
     render(props) {
-
+        console.log("THe props");
+        console.log(this.props);
         return (
+            <>
+                <section className="notes-list">
+                    <ul>
+                        <li >
 
-            <section className="notes-list">
-                <ul>
-                    <li >
-                        {/* {<Note name={this.props.name} id={this.props.id} modified={this.props.modified} />} */}
-                    </li>
-                </ul>
-            </section>
+                            {<Note name={this.props.name} id={this.props.id} modified={this.props.modified} />}
+                        </li>
+                        <li>{this.props.content}</li>
+
+                    </ul>
+                </section>
+            </>
         )
     }
 }

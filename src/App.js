@@ -7,13 +7,14 @@ import dummyStore from './dummy-store';
 import { getNotesForFolder, findNote, findFolder } from './utilities';
 import NoteList from './Note/noteList';
 import FolderList from './Folder/folderList';
-
+import FolderNote from './Folder/folderNote';
 
 class App extends Component {
 
   state = {
     notes: [],
-    folders: []
+    folders: [],
+    selectedFolderId: null
   }
 
   componentDidMount() {
@@ -70,15 +71,18 @@ class App extends Component {
             notes,
             noteId
           );
+          console.log("noteFound:");
 
+          // console.log(this.state.notes);
+          // console.log(notes);
           console.log(noteFound);
-
           return (
             <NoteNote
               {...routeProps}
-            // id={noteId}
-            // name={noteFound.name}
-            // modified={noteFound.modified}
+              id={noteFound.id}
+              name={noteFound.name}
+              modified={noteFound.modified}
+              content={noteFound.content}
             />
           );
         }}
@@ -86,10 +90,6 @@ class App extends Component {
 
 
     </>)
-  }
-
-  handleFolderClick(folderId) {
-    //console.log("clicked on folder:" + folderId);
   }
 
   renderMainFolders() {
@@ -119,7 +119,6 @@ class App extends Component {
             notes,
             folderId
           );
-
           console.log(notesForFolder);
           return (
             <FolderList
@@ -130,6 +129,35 @@ class App extends Component {
           );
         }}
       />
+
+      <Route
+        path="/note/:noteId"
+        render={routeProps => {
+          const { noteId } = routeProps.match.params;
+
+          const noteFound = findNote(
+            notes,
+            noteId
+          );
+
+          const folderFound = findFolder(
+            this.state.folders,
+            noteFound.folderId
+          )
+
+          // console.log(this.state.notes);
+          // console.log(notes);
+          console.log(noteFound);
+
+          return (
+            <FolderNote
+              {...routeProps}
+              folder={folderFound}
+            />
+          );
+        }}
+      />
+
 
     </>)
   }
