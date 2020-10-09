@@ -124,6 +124,7 @@ class App extends Component {
             <FolderList
               {...routeProps}
               folders={folders}
+              folderChosen={folderId}
               handleFolderClick={e => this.handleFolderClick(e)}
             />
           );

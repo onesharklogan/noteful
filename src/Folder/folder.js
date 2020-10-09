@@ -6,11 +6,17 @@ import '../App.css';
 class Folder extends Component {
 
     render(props) {
-        { console.log(this.props.history) }
-
+        { console.log(this.props.folderChosen) }
+        let myClass = 'folder-button';
+        {
+            if (this.props.folderChosen == this.props.id) {
+                console.log("Im the chosen folder");
+                myClass = 'folder-button-selected';
+            }
+        }
         return (
             <NavLink
-                className='folder-button'
+                className={myClass}
                 to={`/folder/${this.props.id}`}
             >{this.props.name}</NavLink>
         )

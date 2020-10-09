@@ -47,13 +47,24 @@
     justify-content: space-around;
 }
 
-.general-button {
+.folder-button-selected {
     height: 55px;
     width: 225px;
-    background-color: rgb(175, 175, 175);
-    border: 1px solid black;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    border: 1px solid rgb(36, 14, 88);
     display: flex;
     justify-content: space-around;
+}
+
+.general-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 105px;
+    height: 55px;
+    border-radius: 10%;
+    background-color: rgb(175, 175, 175);
+    /* border: 1px solid black; */
 }
 
 .note {}
