@@ -6,7 +6,7 @@ import '../App.css';
 class Folder extends Component {
 
     render(props) {
-        { console.log(this.props) }
+        { console.log(this.props.history) }
 
         return (
             <NavLink

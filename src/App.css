@@ -47,6 +47,15 @@
     justify-content: space-around;
 }
 
+.general-button {
+    height: 55px;
+    width: 225px;
+    background-color: rgb(175, 175, 175);
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+}
+
 .note {}
 
 .note-button {
